@@ -28,3 +28,25 @@ var EvenUtil = {
     EvenUtil.addHandler(btn,"click",fuc);
     EvenUtil.removeHandler(btn,"click",fuc);
 ```
+
+
+事件对象
+```JavaScript
+    var btn = document.getElementById("mybtn");
+    var handler = function(event){
+        switch(event.type){
+            case "click" :
+                alert("clicked");
+                break;
+            case "mouseover":
+                event.target.style.backgroundColor = "red";
+                break;
+            case "mouseout":
+                event.target.style.backgroundColor = "";
+                break;
+        }
+    };
+    btn.onclick = handler;
+    btn.onmouseover = handler;
+    btn.onmouseout = handler;
+    ```
