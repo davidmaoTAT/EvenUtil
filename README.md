@@ -1,5 +1,6 @@
 # EvenUtil
 跨浏览器的事件处理程序
+```
 var EvenUtil = {
         addHandler :function(element, type, handler){
             if(element.addEventListener){
@@ -26,3 +27,4 @@ var EvenUtil = {
     }
     EvenUtil.addHandler(btn,"click",fuc);
     EvenUtil.removeHandler(btn,"click",fuc);
+```
