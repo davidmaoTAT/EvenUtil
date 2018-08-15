@@ -2,6 +2,7 @@
 跨浏览器的事件处理程序
 ```javascript
 var EvenUtil = {
+        \\监听事件后的操作
         addHandler :function(element, type, handler){
             if(element.addEventListener){
                 element.addEventListener(type, handler,false);
@@ -12,14 +13,17 @@ var EvenUtil = {
             }
         },
 
+        \\获取事件
         getEvent: function(event){
             return event ? event : window.event;
         },
 
+        \\获取目标
         getTarget: function(event){
             return event.target || event.srcElement;
         },
 
+        \\阻止默认功能
         preventDefault: function(event){
             if(event.preventDefault){
                 event.preventDefault();
@@ -27,7 +31,17 @@ var EvenUtil = {
                 event.returnValue = false;
             }
         },
+        
+        \\获取编码值
+        getCharCode: function(event){
+            if(typeof event.charCode == "number"){
+                return event.charCode;
+            }else{
+                return event.keyCode;
+            }
+        },
 
+        \\取消事件的操作
         removeHandler: function(element,type,handler){
             if(element.addEventListener){
                 element.addEventListener(type, handler,false);
@@ -38,6 +52,7 @@ var EvenUtil = {
             }
         },
         
+        \\取消事件的默认功能
         stopPropagation: function(event){
             if(event.stopPropagation){
                 event.stopPropagation;
