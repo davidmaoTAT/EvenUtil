@@ -75,3 +75,21 @@ var EvenUtil = {
     btn.onmouseover = handler;
     btn.onmouseout = handler;
  ```
+表单操作
+```javascript
+  var form = document.getElementById("myForm");
+    EvenUtil.addHandler(form,"sumbit",function(event){
+        event = EvenUtil.getEvent(event);//取得事件对象
+        EvenUtil.preventDefault(event); //阻止默认事件
+    });
+
+    //避免多次提交表单
+    EvenUtil.addHandler(form,"sumbit",function(event){
+        event = EvenUtil.getEvent(event);
+        var target = EvenUtil.getTarget(event);
+    //取得提交按钮
+        var btn = target.element["myForm"];
+    //禁用
+        btn.disabled = true;
+    })
+```
