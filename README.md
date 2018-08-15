@@ -93,3 +93,38 @@ var EvenUtil = {
         btn.disabled = true;
     })
 ```
+
+共有的表单字段事件
+```javascript
+ var textbox = document.forms[0].elements[0];
+    EvenUtil.addHandler(textbox,"focus",function(event){
+        event = EvenUtil.getEvent(event);
+        var target = EvenUtil.getTarget(event);
+
+        if(target.style.backgroundColor != "red"){
+            target.style.backgroundColor = "yellow";
+        }
+    });
+
+    EvenUtil.addHandler(textbox,"blur",function(event){
+        event = EvenUtil.getEvent(event);
+        var target = EvenUtil.getTarget(event);
+
+        if(/[^\d]/.test(target.value)){
+            target.style.backgroundColor = "red";
+        }else{
+            target.style.backgroundColor = "";
+        }
+    });
+
+    EvenUtil.addHandler(textbox,"change",function(event){
+        event = EvenUtil.getEvent(event);
+        var target = EvenUtil.getTarget(event);
+
+        if(/[^\d]/.test(target.value)){
+            target.style.backgroundColor = "red";
+        }else{
+            target.style.backgroundColor = "";
+        }
+    });
+```
